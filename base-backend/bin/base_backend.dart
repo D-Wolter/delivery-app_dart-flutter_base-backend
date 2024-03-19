@@ -1,5 +1,5 @@
 import 'package:shelf/shelf.dart';
-import 'package:shelf/shelf_io.dart';
+import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:mysql1/mysql1.dart';
 
 import 'package:commons_core/commons_core.dart';
@@ -33,5 +33,13 @@ void main(List<String> arguments) async {
   final UserService _userService = UserServiceImp(_userRepository);
   final UserController _userController = UserController(_userService);
 
-  _userController.getUsers();
+  var cascadeHandler = Cascade().add(_userController.getHandler()).handler;
+  var handler =
+      Pipeline().addMiddleware(logRequests()).addHandler(cascadeHandler);
+
+  shelf_io.serve(
+    handler,
+    await CustomEnv.get<String>(key: 'server_ip'),
+    await CustomEnv.get<int>(key: 'server_port'),
+  );
 }
