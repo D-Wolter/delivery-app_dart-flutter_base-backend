@@ -21,7 +21,10 @@ class UserController extends Controller {
       List<User> users = await _userService.getAllUsers();
       List<Map> usersJsonMap =
           users.map((User user) => UserDto.toJson(user)).toList();
-      return Response.ok(jsonEncode(usersJsonMap));
+      return Response.ok(
+        jsonEncode(usersJsonMap),
+        headers: {'content-type': 'application/json'},
+      );
     });
 
     return createHandler(
