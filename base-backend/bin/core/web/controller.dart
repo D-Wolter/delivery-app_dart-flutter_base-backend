@@ -1,7 +1,7 @@
 import 'package:commons_core/commons_core.dart';
 import 'package:shelf/shelf.dart';
 
-import './security/security_service.dart';
+import '../security/security_service.dart';
 
 abstract class Controller {
   Handler getHandler({
