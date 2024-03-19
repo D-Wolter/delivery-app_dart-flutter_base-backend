@@ -1,0 +1,5 @@
+//INSERT INTO tb_usuarios 
+//(nome, sobrenome, dataNasc, documento, email, senha, deviceToken, cidade, status)
+//VALUES(2, 'Daniel', 'Wolter', now(), '123', 'daniel@email.com', '123456', 'token', 'Florianópolis', 'A', now(), now());
+
+//VALUES('Daniel2', 'Wolter', now(), '777', 'daniel7777@email.com', '123456', 'token', 'Florianópolis', 'A');
