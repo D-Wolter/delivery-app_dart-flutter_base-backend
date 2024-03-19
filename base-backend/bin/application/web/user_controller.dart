@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:shelf/shelf.dart';
-import 'package:shelf/src/middleware.dart';
 import 'package:shelf_router/shelf_router.dart';
+
 import '../../core/web/controller.dart';
 import '../../domain/models/user.dart';
 import '../../domain/ports/inputs/user_service.dart';
